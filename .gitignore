@@ -1,0 +1,27 @@
+# idea configs
+/.vscode/
+/.idea/
+
+# python cache
+__pycache__
+
+# virtual environment
+/venv/
+/env/
+
+# local postgresql database
+/pgdata/
+/pgsql/
+
+# documentation builds
+/documents/_build/
+
+# root static files directory
+/static/
+
+# temporary files storage
+/temp/
+/tmp/
+
+# sqlite for develop
+db.sqlite3
