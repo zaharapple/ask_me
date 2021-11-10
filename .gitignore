@@ -25,3 +25,4 @@ __pycache__
 
 # sqlite for develop
 db.sqlite3
+
