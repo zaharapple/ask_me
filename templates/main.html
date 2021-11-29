@@ -54,12 +54,8 @@
             <a href="{%url 'user:sign-up' %}" class="btn btn-warning">Registration</a>
         {% else %}
             <div class="form-inline my-2 my-lg-0">
-            <a href="{% url 'user:profile' %}" class="btn btn-warning">Profile: {{ request.user }}</a>
-            {% if request.user.is_staff %}
-                <a href="admin/" class="btn btn-warning">settings </a>
-            {% else %}
-                <p id="cart-total">0</p>
-            {% endif %}
+            <a href="{% url 'user:profile' pk=request.user.id %}" class="btn btn-warning">Profile: {{ request.user }}</a>
+
             <a href="{%url 'user:logout' %}" class="btn btn-warning">Logout</a>
         {% endif %}
 

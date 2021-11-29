@@ -6,8 +6,8 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, FormView
 from django.views.generic.edit import FormMixin
 
-from main.forms import CreateFormTest, CreateFormCard, RunTestForm, \
-    CommentForm
+from main.forms import (CreateFormTest, CreateFormCard,
+                        RunTestForm,CommentForm)
 
 from main.models import MyTest, Result
 from main.validators import valid_test
