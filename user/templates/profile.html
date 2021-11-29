@@ -26,7 +26,7 @@
             <p class="card-text">Birthday:{{user.profile.birthday}}</p>
             {%endif%}
         </div>
-        <a class="btn btn-warning" href="{% url 'user:profile-update'%}">Сhange additional
+        <a class="btn btn-warning" href="{% url 'user:profile-update' pk=user.profile.pk %}">Сhange additional
             information </a>
 
     </div>
