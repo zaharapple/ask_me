@@ -1,21 +1,61 @@
 {% extends 'main.html' %}
+
+
+{% block buttons %}
+<div class="btn-group-vertical" >
+  <a class="btn btn-warning" href="/">All tests</a>
+  <a class="btn btn-warning" href="{% url 'main:filter'%}">Finished tests</a>
+  <a class="btn btn-warning" href="{% url 'main:sort'%}">sorted by older</a>
+
+</div>
+
+
+{% endblock %}
+
 {% block content %}
 
-<html>
- <head>
-  <meta charset="utf-8" />
-  <title>HTML5</title>
-  <!--[if IE]>
-   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <style>
-   article, aside, details, figcaption, figure, footer,header,
-   hgroup, menu, nav, section { display: block; }
-  </style>
- </head>
- <body>
-  <p>HOME</p>
- </body>
-</html>
+
+
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col" style="color:#DAA520">Name</th>
+      <th scope="col" style="color:#DAA520">Descriptions</th>
+      <th scope="col"style="color:#DAA520">Count of questions</th>
+      <th scope="col"style="color:#DAA520">date</th>
+      <th scope="col"style="color:#DAA520">Links</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {% for object in object_list %}
+     {% if object.flag %}
+    <tr>
+      <th scope="row" style="color:#00FFFF"> {{object.name}} {{ object.test}}</th>
+      <td>{{object.description}}</td>
+      <td>{{object.card_set.count}}</td>
+      <td>{{object.created_at.date}}</td>
+      <td><a class="btn btn-outline-success" href="{% url 'main:detail' pk=object.pk %}">Detail</a></td>
+    </tr>
+  {%endif%}
+  {% endfor %}
+
+
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {% endblock %}

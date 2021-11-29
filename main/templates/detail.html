@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1>{{ object.name }}</h1>
+    <h3>{{ oject.description}}</h3>
+    <h2> This test have a  {{ object.card_set.count }} questions</h2>
+<h3>creator:{{ object.user }}</h3>
+
+
+
+<h4>You tried to pass the test :  {{ object.result_set.count }}</h4>
+<h5>{{object.created_at.date}}</h5>
+<hr>
+    <td><a class="btn btn-outline-success" href="{% url 'main:run_test' pk=object.pk %}">run</a></td>
+    <td><a class="btn btn-outline-success" href="{% url 'main:add_card' pk=object.pk %}">upd</a></td>
+
+
+<hr>
+
+<div>
+    <form action="" id="add_id" method="post">
+        {% csrf_token %}
+            {{form.as_p}}
+
+            <button form="add_id" type="submit" class="btn btn-info">To comment</button>
+    </form>
+</div>
+<hr>
+    {% for comment in object.comments_set.all%}
+<div class="card text-white bg-secondary mb-3" style="max-width: 70rem;">
+  <div class="card-header">{{comment.author}}</div>
+  <div class="card-body">
+    <h5 class="card-title">{{comment.text}}</h5>
+    <p class="card-text">{{ comment.created_at }}</p>
+  </div>
+</div>
+{% endfor %}
+
+
+{% endblock %}

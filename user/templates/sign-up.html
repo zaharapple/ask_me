@@ -1,0 +1,23 @@
+{% extends "main.html" %}
+
+{% block title %}Sing-Up | {{ block.super }}{% endblock %}
+
+
+{% block content %}
+    <div class="row">
+    <div class="col">
+        <form method="post">
+       {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+
+    </div>
+    <div class="row">
+        <div class="col">
+            If you already have an account.
+            <a href="{% url 'user:sign-in' %}">login</a>
+        </div>
+    </div>
+{% endblock %}

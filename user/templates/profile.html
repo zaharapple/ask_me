@@ -1,0 +1,77 @@
+{% extends "main.html" %}
+
+{% block title %}Profile | {{ block.super }}{% endblock %}
+
+{% block buttons %}
+
+
+<div class="row">
+
+
+    <div class="card" style="width: 18rem;">
+        {% if user.profile.img %}
+        <img src="{{user.profile.img.url }}" class="card-img-top" alt="no image">
+        {%endif%}
+        <div class="card-body">
+            {% if user.first_name and user.last_name %}
+            <h5>{{ user.first_name|title }} {{ user.last_name|title }}</h5>
+            {% else %}
+            <p class="card-text">{{user.username}}</p>
+            {% endif %}
+            {%if user.profile.myself_info%}
+            <h5 class="card-text">About me:</h5>
+            <p class="card-text">{{user.profile.myself_info}}</p>
+            {%endif%}
+            {% if user.profile.birthday%}
+            <p class="card-text">Birthday:{{user.profile.birthday}}</p>
+            {%endif%}
+        </div>
+        <a class="btn btn-warning" href="{% url 'user:profile-update' pk=user.profile.pk %}">Сhange additional
+            information </a>
+
+    </div>
+
+
+    {% endblock %}
+
+
+    {% block content %}
+
+    {% if tasks %}
+        <div>
+            <h1 style="text-align:center;">My tests:</h1>
+        </div>
+    <table class="table table-dark table-striped">
+
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Count questions</th>
+            <th scope="col">open or not !</th>
+        </tr>
+        </thead>
+
+
+        <tbody>
+        {%for task in tasks%}
+        <tr>
+            <th scope="row">#</th>
+            <td>{{task.name}}</td>
+            <td>{{task.card_set.count}}</td>
+            {%if task.flag %}
+            <td>Open</td>
+            {%else%}
+            <td>not</td>
+            {%endif%}
+        </tr>
+
+        {%endfor%}
+
+        </tbody>
+    </table>
+
+    {% endif %}
+</div>
+
+{% endblock %}
