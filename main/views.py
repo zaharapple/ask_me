@@ -12,7 +12,6 @@ from main.forms import (CreateFormTest, CreateFormCard,
 from main.models import MyTest, Result
 from main.validators import valid_test
 
-#TODO: СДЕЛАТЬ ВОЗМОЖНОСТЬ УДАЛЕНИЯ СВОИХ КОМИТОВ
 #TODO: НУЖНЫ ЛИ РЕЗУЛЬТАТЫ ДЛЯ СОХРАНЕНИЯ?
 
 class TaskView(ListView):
