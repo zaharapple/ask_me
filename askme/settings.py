@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-6tp*6ava@s&pg5-hz!#y$6*sr^#5$r7xxcjggy5@=33u7+h)i$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "127.0.1.1"]
 
 
 # Application definition
@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'askme.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+DATABASES = {     #TODO:POSTGRESQL
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
@@ -86,7 +86,7 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
+AUTH_PASSWORD_VALIDATORS = [ #TODO: Разкоментить валидацию паролей
     # {
     #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     # },

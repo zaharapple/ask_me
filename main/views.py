@@ -13,6 +13,8 @@ from main.models import MyTest, Result
 from main.validators import valid_test
 
 #TODO: НУЖНЫ ЛИ РЕЗУЛЬТАТЫ ДЛЯ СОХРАНЕНИЯ?
+#TODO: Возможность создавать два теста form_set
+
 
 class TaskView(ListView):
     """

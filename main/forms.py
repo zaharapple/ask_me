@@ -8,7 +8,7 @@ from main.models import MyTest, Card, Result, Comments
 
 
 
-class CreateFormTest(forms.ModelForm):  #TODO: ПЕРЕДЕЛАТЬ что бы создавало только при создании вопросов
+class CreateFormTest(forms.ModelForm):
     """
     class form created instance Test
     """
@@ -47,7 +47,7 @@ class CreateFormCard(forms.ModelForm): #TODO: сделать создание к
                   'wrong_answer2', 'wrong_answer3']
 
 
-class RunTestForm(forms.Form):   #TODO: ПОЛОТНО :(
+class RunTestForm(forms.Form):   #TODO: Уменьшить зависимость :(
     def __init__(self, *args, **kwargs):
         super(RunTestForm, self).__init__(*args, **kwargs)
 
